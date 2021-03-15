@@ -4,6 +4,9 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
+Vue.prototype.apiURL="https://newsapi.org/v2/"
+Vue.prototype.apiKey="5eae03569b8045e08179176b9033c86f"
+
 const routes = [
   {
     path: '/',

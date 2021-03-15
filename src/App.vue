@@ -1,33 +1,78 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/Test">Test</router-link>
-    </div>
+  <div id="app" v-cloak>
     <router-view/>
   </div>
 </template>
 
+<script>
+
+export default {
+  name: "app",
+  components: {
+  },
+  data() {
+    return {
+    };
+  },
+    created : function () {
+    },
+    computed :{},
+
+    methods: {},
+};
+
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+  }
+  [v-cloak] {
+      display: none;
+  }
 
-#nav {
-  padding: 30px;
-}
+  *{
+      margin:0;
+      padding:0;
+  }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  body{
+      font:15px/1.3 'Open Sans', sans-serif;
+      color: #adbfd2;
+      text-align:center;
+      background-color: #242424;
+  }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+  section, footer, header, aside, nav{
+      display: block;
+  }
+
+  .dot {
+      height: 1.4em;
+      width: 1.4em;
+      background-color: darkorange;
+      border-radius: 50%;
+      display: inline-block;
+      color: white;
+  }
+  .greendot {
+      background-color: limegreen;
+  }
+  .reddot {
+      background-color: red;
+  }
+
+  .pasdutoutunrickroll{
+      text-decoration: none;
+      color: inherit;
+      cursor: default;
+  }
+  img{
+    height: 20px;
+    width: 20px;
+  }
+
 </style>
