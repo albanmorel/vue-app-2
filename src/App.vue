@@ -74,5 +74,14 @@ export default {
     height: 20px;
     width: 20px;
   }
-
+  .tooltiptext.tooltip {
+    background-color: #242424;
+    width: 5REM;
+    border-radius: 6px;
+    animation: fadeIn ease 0.5s;
+  }
+  @keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
 </style>

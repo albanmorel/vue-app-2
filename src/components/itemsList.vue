@@ -6,7 +6,7 @@
         <ul>
             <li v-for="news in newsList" :key="news.title" class="itemsWrapper">
               <img class="newsImg" src="../assets/noimgjpg.jpg">
-              <span class="toArticle tooltip" @click="redirectToNews(news.url)">><span class="tooltiptext">To Article</span></span>
+              <span class="toArticle" @click="redirectToNews(news.url)" v-tooltip.bottom-start=" {content : 'To Article', classes: 'tooltiptext'}">></span>
               <h3 class="newsTitle">
                 {{news.title}} 
                 <h5>
@@ -285,29 +285,4 @@ export default {
     color: red;
     transition: 0.5s;
   }
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 5REM;
-    background-color: #242424;
-    color: #dadada;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: lighter;
-    left: 68%;
-    margin-top: 2rem;
-
-    /* Position the tooltip text */
-    position: absolute;
-    z-index: 1;
-
-    /* Fade in tooltip */
-    opacity: 0;
-    transition: 0.5s;
-  }
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
 </style>

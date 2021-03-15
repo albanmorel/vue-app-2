@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import VTooltip from 'v-tooltip';
 
 Vue.use(VueRouter)
+Vue.use(VTooltip)
 
 Vue.prototype.apiURL="https://newsapi.org/v2/"
 Vue.prototype.apiKey="5eae03569b8045e08179176b9033c86f"
