@@ -3,9 +3,17 @@
     <h1><a class="pasdutoutunrickroll" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">{{title}}</a></h1>
     <div class="mainWrapper">
         <span v-html="retour" @click="goToPreviousPage"></span>
+        <select v-model="filterValue">
+          <option disabled value="title">Filter by..</option>
+          <option>Title</option>
+          <option>Author</option>
+          <option>Descritpion</option> 
+          <option>Content</option>                  
+        </select>
+        <input type="text" v-model="searchString" placeholder="Enter your search terms" />
         <ul>
-            <li v-for="news in newsList" :key="news.title" class="itemsWrapper">
-              <img class="newsImg" src="../assets/noimgjpg.jpg">
+            <li v-for="news in filteredNews" :key="news.source.id" class="itemsWrapper">
+              <img class="newsImg" src="../assets/doge.jpg">
               <span class="toArticle" @click="redirectToNews(news.url)" v-tooltip.bottom-start=" {content : 'To Article', classes: 'tooltiptext'}">></span>
               <h3 class="newsTitle">
                 {{news.title}} 
@@ -19,7 +27,7 @@
             </li>
         </ul>
         <div class="detailedNews" :class="{'active' : detailedNewsToggeled}">
-            <img class="detailedNewsImg" src="../assets/noimgjpg.jpg">
+            <img class="detailedNewsImg" src="../assets/doge.jpg">
             <span class="close-cross" @click="CloseDetailedNews()"> X </span>
             <span class="detailedNewsToArticle" @click="redirectToNews(detailedNews.newsURL)">Go to article</span>
             <h3 class="detailedNewsTitle">{{detailedNews.title}}
@@ -48,6 +56,8 @@ export default {
     return {
       retour : "< retour",
       detailedNewsToggeled: false,
+      searchString: "",
+      filterValue: "title",
       detailedNews: {
         imgUrl: "",
         newsURL: "",
@@ -56,8 +66,28 @@ export default {
         content: ""
       }
     }
-  }, 
-    created : function () {}, 
+  },  
+  computed: {
+      filteredNews: function () {
+          var news_array = this.newsList,
+          searchString = this.searchString,
+          filterValue = this.filterValue.toLowerCase();
+
+          if(!searchString){
+              return news_array;
+          }
+
+          searchString = searchString.trim().toLowerCase();
+
+          news_array = news_array.filter(function(item){
+              if(item[filterValue].toLowerCase().indexOf(searchString) !== -1){
+                  return item;
+              }
+          })
+          return news_array;
+      }
+  },
+  created : function () {}, 
   methods: {
     redirectToNews: function (url){
       window.location = url;    
@@ -73,6 +103,7 @@ export default {
       this.detailedNews.content = newContent,
 
       this.detailedNewsToggeled = !this.detailedNewsToggeled
+      console.log(this.filterValue)
     },
     CloseDetailedNews: function() {
       this.detailedNewsToggeled = !this.detailedNewsToggeled
@@ -163,6 +194,7 @@ export default {
     transition: 0.5s;
   }
   .itemsWrapper {
+      grid-column: 2/3;
       display: grid;
       grid-template-columns: 30% 60% 10%;
       grid-auto-rows: 2.5em 7rem ;
@@ -175,8 +207,7 @@ export default {
   .mainWrapper{
       margin-top: 3rem;
       display: grid;
-      grid-template-columns: 25% 50% 25%;
-      grid-template-rows: 3% auto;
+      grid-template-columns: 25% 25% 25% 25%;
   }
   .mainWrapper > span{
     grid-column: 2/2;
@@ -185,8 +216,28 @@ export default {
       cursor: pointer;
       user-select: none;
   }
+  .mainWrapper > input{
+    grid-column: 3/3;
+    grid-row: 1/1;
+    justify-self: end;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    box-shadow: 0 2px 8px #c4c4c4 inset;
+    font-weight: bold;
+    width: 70%;
+  }
+  .mainWrapper > select{
+    grid-column: 3/3;
+    grid-row: 1/1;
+    justify-self: start;
+    border-radius: 5px 0 0 5px;
+    border: none;
+    box-shadow: 0 2px 8px #c4c4c4 inset;
+    font-weight: bold;
+    width: 30%;
+  }
   .mainWrapper > ul {
-      grid-column: 2 / 2;
+      grid-column: 2 / 4;
       grid-row: 2 / 2;
   }
   .newsTitle{

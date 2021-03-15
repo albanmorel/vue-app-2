@@ -23,11 +23,11 @@ export default {
       news : [
         {
           source: {
-            id : "sourceId",
+            id : "sourceId1",
             name : "sourceName"
           },
           author: "Author name",
-          title: "Lorem ipsum",
+          title: "Lorem ipsum 1",
           descritpion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
           urlToImage: "../assets/noimgjpg.jpg",
@@ -36,11 +36,11 @@ export default {
         },
         {
           source: {
-            id : "sourceId",
+            id : "sourceId2",
             name : "sourceName"
           },
           author: "Author name",
-          title: "Lorem ipsum",
+          title: "Lorem ipsum 2",
           descritpion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
           urlToImage: "../assets/noimgjpg.jpg",
@@ -49,11 +49,11 @@ export default {
         },
         {
           source: {
-            id : "sourceId",
+            id : "sourceId3",
             name : "sourceName"
           },
           author: "Author name",
-          title: "Lorem ipsum",
+          title: "Lorem ipsum 2",
           descritpion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
           urlToImage: "../assets/noimgjpg.jpg",
@@ -62,11 +62,11 @@ export default {
         },
         {
           source: {
-            id : "sourceId",
+            id : "sourceId4",
             name : "sourceName"
           },
           author: "Author name",
-          title: "Lorem ipsum",
+          title: "Lorem ipsum 4",
           descritpion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
           urlToImage: "../assets/noimgjpg.jpg",
