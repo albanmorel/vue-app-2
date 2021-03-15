@@ -8,12 +8,14 @@
           <option>Title</option>
           <option>Author</option>
           <option>Descritpion</option> 
-          <option>Content</option>                  
+          <option>Content</option>
+          
         </select>
         <input type="text" v-model="searchString" placeholder="Enter your search terms" />
         <ul>
             <li v-for="news in filteredNews" :key="news.source.id" class="itemsWrapper">
-              <img class="newsImg" src="../assets/doge.jpg">
+              <img @click="toggleFavNews(news)" class="newsImg" src="../assets/doge.jpg"> 
+              <img @click="toggleFavNews(news)" class="fav-icon" :src="getImgUrl(news.isFav)+'?'+Math.random()">
               <span class="toArticle" @click="redirectToNews(news.url)" v-tooltip.bottom-start=" {content : 'To Article', classes: 'tooltiptext'}">></span>
               <h3 class="newsTitle">
                 {{news.title}} 
@@ -51,7 +53,7 @@
 
 export default {
   name: 'itemsList',
-  props: {title: String, newsList: Array},
+  props: {title: String, newsList: Array, isFav: Boolean},
   data() {
     return {
       retour : "< retour",
@@ -103,71 +105,24 @@ export default {
       this.detailedNews.content = newContent,
 
       this.detailedNewsToggeled = !this.detailedNewsToggeled
-      console.log(this.filterValue)
     },
     CloseDetailedNews: function() {
       this.detailedNewsToggeled = !this.detailedNewsToggeled
     },
-    
+    toggleFavNews: function(targetNews){
+      targetNews.isFav = !targetNews.isFav
 
+      console.log(this.newsList)
+    },
+    getImgUrl: function(isFav){
+      return require('../assets/'+(isFav ? 'fav.png' : 'favnt.png'));
+    },
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .addItemWrapper{    
-      display: grid;
-      grid-template-columns: auto;
-      grid-auto-rows: 2.5em 7rem ;
-      margin-top: 0.6rem;
-      padding: 0.6rem;
-      border-radius: 10px;
-      color: #dadada;
-      background-color: #3f5873;
-  }
-  .addItemWrapper.inactive{
-    display: none;
-  }  
-  .addItemWrapper > .addItem {
-    grid-column: 1/1;
-    justify-self: center;
-  }
-  .addItem{
-    user-select: none;
-    cursor: pointer;
-  }
-  .itemsWrapper.inactive{
-    display: none;
-  }
-  .close-gameform-btn{
-    user-select: none;
-    cursor: pointer;
-  }
-  .gamedesc > textarea{
-    width: 90%;
-    height: 90%;
-  }
-  .gamedesc{
-    width: 100%;
-    height: 100%;
-  }
-  .createItem-btn{    
-    border-radius: 7px;
-    border: solid 1px transparent;
-    padding: 0.5rem;
-    user-select: none;
-    font-weight: bold;
-    background-color: #dadada;
-    grid-column: 2/2;
-    grid-row: 2/2;
-    width: 100%;
-    height: 50%;
-    align-self: center;
-  }
-  .isOnline-checkbox{
-    justify-self: end;
-  }
   .detailedNews{
     visibility: hidden;
     opacity: 0;
@@ -264,15 +219,22 @@ export default {
       width: 100%;
       height: 100%;
   }
-  .itemsScore{
-      display: inline-block;
-      grid-column: 2 / 2;
-      grid-row: 1 / 1;
-      justify-self: end;
+  .fav-icon{
+      grid-column: 1 / 1;
+      grid-row: 1 / 3;
+      width: 40px;
+      height: 40px;
+      z-index: 10;
+      margin: 0.4rem;
+      opacity: 0;
+      transition: 0.5s;
   }
-  .itemsScore > span{
-    cursor: pointer;
-    user-select: none;
+  .fav-icon:hover{
+    opacity: 1;
+  }
+  .newsImg:hover + .fav-icon{
+    opacity: 1;
+    transition: 0.5s;
   }
   .newsDesc{
       grid-column: 2 / 4;

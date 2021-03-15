@@ -74,9 +74,21 @@ export default {
     height: 20px;
     width: 20px;
   }
+  .fav-btn{
+    position: absolute;
+    right: 25%;
+    border-radius: 7px;
+    padding: 0.3rem;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #dadada;
+    background-color: #3f5873;
+  }
   .tooltiptext.tooltip {
     background-color: #242424;
-    width: 5REM;
+    width: 5rem;
     border-radius: 6px;
     animation: fadeIn ease 0.5s;
   }

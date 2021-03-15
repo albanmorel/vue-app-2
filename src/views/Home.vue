@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <itemsList title="Ad News Aeternam" :newsList="news"></itemsList>
+    <itemsList title="Ad News Aeternam" :newsList="updatedNewsList"></itemsList>
+    <span class="fav-btn" @click="goToFav()">My favorites</span>
   </div>
 </template>
 
@@ -74,7 +75,29 @@ export default {
           content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         },
       ],
+      favs: [
+        "sourceId1",
+        "sourceId3",
+      ],
     };
+  },
+  computed: {
+      updatedNewsList: function () {
+          
+          let favs = this.favs;
+          this.news.forEach(item => {
+            if(favs.includes(item.source.id)){
+                item.isFav = true;
+            }
+            else{
+              item.isFav = false;
+            }
+          });
+
+          console.log(this.news)
+
+          return this.news;
+      }
   },
     methods: {      
         fetchData: async function () {
@@ -92,6 +115,21 @@ export default {
             }*/
 
             return 0
+        },
+        goToFav: function(){
+          
+          let favoriteNewsList = [];
+          this.news.forEach(item => {
+            if(item.isFav){
+              favoriteNewsList.push(item);
+            }
+          });
+
+          console.log(favoriteNewsList)
+          this.$router.push({
+            name: 'myFavorite',
+            params: { newsList: favoriteNewsList }
+          })          
         }
     },
 }
