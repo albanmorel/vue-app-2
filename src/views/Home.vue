@@ -27,9 +27,9 @@ export default {
             id : "sourceId1",
             name : "sourceName"
           },
-          author: "Author name",
-          title: "Lorem ipsum 1",
-          descritpion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          author: "David GoodEnough",
+          title: "Tout va bien",
+          descritpion: "Même si tout va mal, tout va bien",
           url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
           urlToImage: "../assets/noimgjpg.jpg",
           publishedAt: "2021-02-26T00:40:52Z",
@@ -40,39 +40,39 @@ export default {
             id : "sourceId2",
             name : "sourceName"
           },
-          author: "Author name",
-          title: "Lorem ipsum 2",
-          descritpion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          author: "MV",
+          title: "Speedons",
+          descritpion: "SpeeDons est un marathon de speedrun caritatif au profit de Médecins du Monde.",
           url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
           urlToImage: "../assets/noimgjpg.jpg",
           publishedAt: "2021-02-26T00:40:52Z",
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          content: "Lorem ipsum dolor sit amet, Speedon consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         },
         {
           source: {
             id : "sourceId3",
             name : "sourceName"
           },
-          author: "Author name",
-          title: "Lorem ipsum 2",
-          descritpion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+          author: "Zerator",
+          title: "Zevent 2020",
+          descritpion: "La quatrième édition de ce marathon caritatif a vu défiler pendant tout le week-end une trentaine de stars de Twitch, de YouTube et de l'e-sport.",
+          url: "https://fr.wikipedia.org/wiki/Z_Event",
           urlToImage: "../assets/noimgjpg.jpg",
           publishedAt: "2021-02-26T00:40:52Z",
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          content: "Le Z Event est un projet caritatif créé par Adrien Nougaret et Alexandre Dachary (respectivement connus sous les pseudonymes ZeratoR et Dach) ayant pour objectif de réunir des streameurs francophones afin de récolter des dons qui permettront de soutenir une association caritative. Il est organisé sur le site de streaming Twitch. La première édition a eu lieu en 2016 sous le nom Projet Avengers. L'événement se fait au profit, successivement, de Save the Children, la Croix-Rouge française, Médecins sans Frontières, l'institut Pasteur et Amnesty International France. Au cours de ses diverses éditions, le Z Event a collecté plus de 10 millions d'euros.",
         },
         {
           source: {
             id : "sourceId4",
             name : "sourceName"
           },
-          author: "Author name",
-          title: "Lorem ipsum 4",
-          descritpion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          author: "Doge",
+          title: "Much code",
+          descritpion: "Much Code! Surch WoW! Many html! ",
           url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
           urlToImage: "../assets/noimgjpg.jpg",
           publishedAt: "2021-02-26T00:40:52Z",
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          content: "Wouaf",
         },
       ],
       favs: [
@@ -117,7 +117,7 @@ export default {
             return 0
         },
         goToFav: function(){
-          
+
           let favoriteNewsList = [];
           this.news.forEach(item => {
             if(item.isFav){

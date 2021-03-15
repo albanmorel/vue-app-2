@@ -49,22 +49,6 @@ export default {
   section, footer, header, aside, nav{
       display: block;
   }
-
-  .dot {
-      height: 1.4em;
-      width: 1.4em;
-      background-color: darkorange;
-      border-radius: 50%;
-      display: inline-block;
-      color: white;
-  }
-  .greendot {
-      background-color: limegreen;
-  }
-  .reddot {
-      background-color: red;
-  }
-
   .pasdutoutunrickroll{
       text-decoration: none;
       color: inherit;
